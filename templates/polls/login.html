@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/login.css' %}">
+</head>
+<body style="background-image: url('{% static 'polls-images/adelin-preda--tOr_T4qTpQ-unsplash.jpg' %}');">
+<div class="topnav">
+    <h2> POOL OF POLLS </h2>
+    <a href="{% url 'register' %}">Register</a>
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'result' %}">Results</a>
+    <a href="{% url 'pool' %}">POOL</a>
+</div>
+<div class="login">
+    <h1>Login</h1>
+    <form action="/polls/login/" method="post">
+        {% csrf_token %}
+        <div class="inputuname">
+            <input style="top: 35%;left:50%;" type="text" placeholder="Username" name="uname" id="uname" required>
+            <input style="top: 50%;left:50%;"type="password" placeholder="Password" name="pword" id="pword" required>
+        </div>
+        <div class="btn">
+            <button style="top: 75%;left:50%;" type="submit">LOGIN</button>
+        </div>
+    </form>
+</div>
+<div class="message">
+    {% for m in messages %}
+        <h2 style="color:rgb(204, 0, 0);text-align:center;">{{m}}</h2>
+
+    {% endfor %}
+
+</div>
+
+</body>

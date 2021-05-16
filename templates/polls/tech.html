@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Technology</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/tech.css' %}">
+</head>
+<body style="background-image: url('{% static 'polls-images/adelin-preda--tOr_T4qTpQ-unsplash.jpg' %}');">
+<div class="topnav">
+    <h2> POOL OF POLLS </h2>
+    {% if user.is_authenticated %}
+    <h3>{{user.first_name}}</h3>
+    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'create_poll' %}">Create Poll</a>
+    {% else %}
+    <a href="{% url 'register' %}">Register</a>
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'result' %}">Results</a>
+    <a href="{% url 'pool' %}">POOL</a>
+</div>
+{% for p in poll %}
+<div class="container">
+    <h1>{{p.heading}}</h1>
+    <form action="{% url 'results' p.id %}" method="post">
+        {% csrf_token %}
+        {% for i in range %}
+        <div class="items">
+            {% if i == 1 %}
+            <h2>{{p.item1}}</h2>
+            <img src="{{p.img1.url}}">
+            <input type="radio" name="choice" value="choice1" required>
+            {% elif i == 2 %}
+            <h2>{{p.item2}}</h2>
+            <img src="{{p.img2.url}}">
+            <input type="radio" name="choice" value="choice2">
+            {% elif i == 3 %}
+            <h2>{{p.item3}}</h2>
+            <img src="{{p.img3.url}}">
+            <input type="radio" name="choice" value="choice3">
+            {% elif i == 4 %}
+            <h2>{{p.item4}}</h2>
+            <img src="{{p.img4.url}}">
+            <input type="radio" name="choice" value="choice4">
+            {% endif %}
+        </div>
+        {% endfor %}
+        <br>
+        <button type="submit">SUBMIT</button>
+    </form>
+</div>
+<br><br>
+{% endfor %}
+<p>!!!No More Polls!!!</p>
+</body>
+</html>

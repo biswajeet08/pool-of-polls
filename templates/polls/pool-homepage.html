@@ -1,0 +1,58 @@
+{% load static %}
+<html>
+<head>
+    <title>POOL-home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/pool_homepage.css' %}">
+</head>
+<body style="background-image: url('{% static 'polls-images/adelin-preda--tOr_T4qTpQ-unsplash.jpg' %}');">
+<div class="topnav">
+    <h2> POOL OF POLLS </h2>
+    {% if user.is_authenticated %}
+        <h3>{{user.first_name}}</h3>
+        <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'create_poll' %}">Create Poll</a>
+    {% else %}
+        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'result' %}">Results</a>
+    <a href="{% url 'pool' %}">POOL</a>
+</div>
+
+<div class="desc">
+    <p>
+        YOU THINK THAT YOUR FAV IS BEST IN THE WORLD???<br><br>
+        DO YOU WANT YOUR FAV TO REACH THE TABLE TOP???<br><br>
+        THEN JOIN !!!<span style="font-family:cursive;color: rgb(0, 172, 230);">POOL OF POLLS</span>!!! AND VOTE YOUR
+        FAV
+    </p>
+</div>
+<div style="height:20px;width:70%;margin-left:15%;">
+    <div style="display:inline-block;width:30%;margin-left:2.5%">
+        <h1 style="height:100%;text-align: center;color: rgb(170, 128, 255);">POOL</h1>
+    </div>
+    <div style="display:inline-block;width:30%;margin-left:2.5%">
+        <h1 style="height:100%;text-align: center;color: rgb(170, 128, 255);">POLLS</h1>
+    </div>
+    <div style="display:inline-block;width:30%;margin-left:2.5%">
+        <h1 style="height:100%;text-align: center;color: rgb(170, 128, 255);">RESULT</h1>
+    </div>
+</div>
+<div style="height:30%;width:70%;margin-left:17.5%;margin-top:3%;">
+    <div style="display:inline-block;width:30%;margin-left:2.5%">
+        <img style="height:80%;width:80%;margin-bottom:5px;border-radius: 25px;"
+             src="{% static 'polls-images/poolimage-removebg-preview-removebg-preview.png' %}">
+    </div>
+    <div style="display:inline-block;width:30%;margin-left:2.5%">
+        <img style="height:80%;width:80%;margin-top:10px;border-radius: 25px;"
+             src="{% static 'polls-images/pollsimage-removebg-preview-removebg-preview.png' %}">
+    </div>
+    <div style="display:inline-block;width:30%;margin-left:2.5%">
+        <img style="height:80%;width:80%;margin-bottom:10px;"
+             src="{% static 'polls-images/Ranking-higher-1-removebg-preview-removebg-preview.png' %}">
+    </div>
+</div>
+
+</body>
+</html>

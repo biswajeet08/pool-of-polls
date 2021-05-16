@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/register.css' %}">
+</head>
+<body style="background-image: url('{% static 'polls-images/adelin-preda--tOr_T4qTpQ-unsplash.jpg' %}');">
+<div class="topnav">
+    <h2> POOL OF POLLS </h2>
+    <a href="{% url 'register' %}">Register</a>
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'result' %}">Results</a>
+    <a href="{% url 'pool' %}">POOL</a>
+</div>
+<div class="regform">
+    <h1>Register</h1>
+    <form action="/polls/register/" method="post">
+        {% csrf_token %}
+        <div class="inputname">
+            <input type="text" placeholder="First Name" name="fname" id="fname" required>
+            <input type="text" placeholder="Last Name" name="lname" id="lname" required>
+        </div>
+        <br>
+        <div class="usrnm">
+            <input type="text" placeholder="Username" name="uname" id="uname" required>
+        </div>
+        <div class="email">
+            <input type="email" placeholder="email" name="email" id="email" required>
+        </div>
+        <br><br>
+        <div class="dob">
+            <label for="dob" style="color:rgb(230, 0, 0);">DOB</label>
+            <input type="date" placeholder="Date of Birth" name="dob" id="dob" required>
+        </div>
+        <div class="gender">
+            <select type="select" placeholder="Gender" name="gender" id="gender" required>
+                <option style="background:none;" value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <br><br>
+        <div class="confirmpasswd">
+            <input type="password" placeholder="Password" name="passwd1" id="passwd1" required>
+            <input type="password" placeholder="Confirm Password" name="passwd2" id="passwd2" required>
+        </div>
+        <br><br>
+        <div class="btn">
+            <button type="submit">SUBMIT</button>
+        </div>
+    </form>
+</div>
+<div class="message">
+    {% for m in messages %}
+        {% if m.message == "REGISTERED" %}
+            <h2 style="color:rgb(41, 163, 41);text-align:center;">{{m}}</h2>
+        {% else %}
+            <h2 style="color:rgb(204, 0, 0);text-align:center;">{{m}}</h2>
+        {% endif %}
+    {% endfor %}
+</div>
+
+</body>
+</html>

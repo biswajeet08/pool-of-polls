@@ -1,0 +1,68 @@
+body{
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.topnav h2{
+  text-align: center;
+  font-family:Lucida Console;
+  color: rgb(170, 128, 255);
+  display: inline-block;
+  font-size: 150%;
+  margin-top: 10px;
+  margin-left:20px;
+  margin-bottom: 5px;
+
+}
+.desc{
+    height: 40%;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.desc>p{
+    font-family:New Century Schoolbook, TeX Gyre Schola, serif;
+    font-size:160%;
+    text-align: center;
+    color: rgb(51, 119, 255);
+
+}
+.topnav {
+  background-color: rgb(0, 128, 128);
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav h3 {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  display: inline-block;
+  font-size: 150%;
+  margin-top: 10px;
+  margin-left:20px;
+  margin-right:20px;
+  margin-bottom: 5px;
+  color: rgb(0, 45, 179);
+
+  }
+
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
