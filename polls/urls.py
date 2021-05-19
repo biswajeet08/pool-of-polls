@@ -15,7 +15,5 @@ urlpatterns = [
     path('results/<poll_id>/', views.results, name = 'results'),
     path('result/', views.result, name = 'result'),
     path('create_poll/', views.create_poll, name = 'create_poll'),
-    path('poll_results/<poll_id>', views.poll_api, name = 'poll_result_api'),
-    path('poll_results/', views.poll_all_api, name = 'poll_result_api'),
-    path('poll/create/api/', views.poll_create_api, name = 'poll_create_api')
+    path('poll/create/polls_api/', views.poll_create_api, name = 'poll_create_api')
 ]

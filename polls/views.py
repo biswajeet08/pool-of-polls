@@ -181,18 +181,6 @@ def create_poll(request):
     else:
         return render(request, 'polls/create_poll.html', {'user': user})
 
-def poll_api(request, poll_id):
-    polls = Create_Poll.objects.get(pk=poll_id)
-    serializer = PollSerializer(polls)
-    data = JSONRenderer().render(serializer.data)
-    return HttpResponse(data, content_type='application/json')
-
-def poll_all_api(request):
-    polls = Create_Poll.objects.all()
-    serializer = PollSerializer(polls, many=True)
-    data = JSONRenderer().render(serializer.data)
-    return HttpResponse(data, content_type='application/json')
-
 @csrf_exempt
 def poll_create_api(request):
     if request.method == 'POST':
