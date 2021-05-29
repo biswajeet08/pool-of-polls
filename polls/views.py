@@ -161,6 +161,7 @@ def create_poll(request):
         img2 = request.FILES['img2']
         img3 = request.FILES['img3']
         img4 = request.FILES['img4']
+        category = request.POST['category']
         poll = Create_Poll.objects.create(heading=question,
                                           item1=choice1,
                                           item2=choice2,
@@ -170,7 +171,7 @@ def create_poll(request):
                                           img2=img2,
                                           img3=img3,
                                           img4=img4,
-                                          category='Misc',
+                                          category= category,
                                           count1=0, count2=0, count3=0, count4=0, total=0, percent1=0, percent2=0,
                                           percent3=0,
                                           percent4=0)

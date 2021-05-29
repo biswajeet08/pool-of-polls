@@ -55,7 +55,7 @@ body{
 .categories{
     width:60%;
     height:80%;
-    top: 50%;
+    top: 40%;
     left:50%;
     position: absolute;
     box-shadow: 0px 1px 10px rgb(179, 0, 0), 0px 1px 10px rgb(179, 0, 0);
