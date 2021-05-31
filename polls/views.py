@@ -112,7 +112,7 @@ def tech(request):
     return render(request, 'polls/tech.html', {'user': user, 'range': range(1, 5), 'poll': poll})
 
 
-@login_required(login_url='/polls/login/')
+#@login_required(login_url='/polls/login/')
 def results(request, poll_id):
     user = request.user
     poll = Create_Poll.objects.get(pk=poll_id)
