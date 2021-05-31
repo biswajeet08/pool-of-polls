@@ -22,7 +22,7 @@ from django.views.static import serve
 from django.conf.urls import url
 
 urlpatterns = [
-    path('/', include('polls.urls')),
+    path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
     path('polls/api/', include('polls_api.urls')),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
